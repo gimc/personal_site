@@ -49,4 +49,6 @@ jobs:
 
       - deploy:
           name: Deploy
-          command: ssh ubuntu@gimc.me "./scripts/deploy-main-prod.sh"
+          command: |
+            ssh-keyscan -H gimc.me >> ~/.ssh/known_hosts
+            ssh ubuntu@gimc.me "./scripts/deploy-main-prod.sh"
