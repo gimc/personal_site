@@ -1,37 +1,40 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-  <p>created by Stefan and Dad</p> 
+<div class="main ui text container">
+  <!-- <div class="overlay">
+    <div class="ui labeled icon vertical menu">
+      <a class="item"><i class="twitter icon"></i> Tweet</a>
+      <a class="item"><i class="facebook icon"></i> Share</a>
+      <a class="item"><i class="mail icon"></i> E-mail</a>
+    </div>
+  </div> -->
+  <img class="ui centered small circular image" src="<%= static_path(@conn, "/images/profile.jpg") %>" />
 </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+<div class="main ui text container">
+  <p>Not sure how you got here, but welcome!</p>
+  <p>Pulling this site together at the moment, so for now here are some links to me and my work elsewhere...</p>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+  <div class="ui center aligned segment">
+    <div class="ui very relaxed horizontal selection list">
+      <div class="item">
+        <i class="large github icon"></i>
+        <div class="content">
+          <a href="https://www.github.com/gimc" class="header">@gimc</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <i class="large twitter icon"></i>
+        <div class="content">
+          <a href="https://www.twitter.com/__gordon" class="header">__gordon</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <i class="normal linkedin icon"></i>
+        <div class="content">
+          <a href="https://www.linkedin.com/in/gordon-mcallister-5228a51b/" class="header">Gordon McAllister</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

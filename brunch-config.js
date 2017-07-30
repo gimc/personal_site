@@ -2,25 +2,20 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
-
-      // To use a separate vendor.js bundle, specify two files path
-      // http://brunch.io/docs/config#-files-
-      // joinTo: {
-      //  "js/app.js": /^(web\/static\/js)/,
-      //  "js/vendor.js": /^(web\/static\/vendor)|(deps)/
-      // }
-      //
-      // To change the order of concatenation of files, explicitly mention here
-      // order: {
-      //   before: [
-      //     "web/static/vendor/js/jquery-2.1.1.js",
-      //     "web/static/vendor/js/bootstrap.min.js"
-      //   ]
-      // }
+      joinTo: {
+        "js/app.js": [
+          /^(web\/static\/vendor\/semantic\/dist)/,
+          /^(web\/static\/js)/
+        ]
+      }
     },
     stylesheets: {
-      joinTo: "css/app.css",
+      joinTo: {
+        "css/app.css": [
+          /^(web\/static\/vendor\/semantic\/dist)/,
+          /^(web\/static\/css)/
+        ]
+      },
       order: {
         after: ["web/static/css/app.css"] // concat app.css last
       }
@@ -34,16 +29,21 @@ exports.config = {
     // This option sets where we should place non-css and non-js assets in.
     // By default, we set this to "/web/static/assets". Files in this directory
     // will be copied to `paths.public`, which is "priv/static" by default.
-    assets: /^(web\/static\/assets)/
+    assets: [
+      /^(web\/static\/assets)/,
+      /^(web\/static\/vendor\/semantic\/dist\/assets)/
+    ],
+
+    ignored: [
+      /^(web\/static\/vendor\/semantic\/tasks)/,
+      /^(web\/static\/vendor\/semantic\/src)/
+    ]
   },
 
   // Phoenix paths configuration
   paths: {
     // Dependencies and current project directories to watch
-    watched: [
-      "web/static",
-      "test/static"
-    ],
+    watched: ["web/static", "test/static"],
 
     // Where to compile files to
     public: "priv/static"
