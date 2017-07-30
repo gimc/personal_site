@@ -56,6 +56,14 @@ config :logger, level: :info
 #     config :personal_site, PersonalSite.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+# Configure your database
+config :personal_site, PersonalSite.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  hostname: System.get_env("DB_HOSTNAME"),
+  database: System.get_env("DB_DATABASE"),
+  pool_size: 20
+
+config :personal_site, PersonalSite.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
