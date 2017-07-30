@@ -7,7 +7,7 @@ ENV PORT=4000
 
 COPY . /
 
-RUN mix deps.get
+RUN mix deps.get --only prod
 RUN mix deps.compile
 RUN mix compile
 RUN brunch build --production
