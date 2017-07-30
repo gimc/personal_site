@@ -27,14 +27,14 @@ jobs:
       # Build and push docker image
       - setup_remote_docker
 
-      - run:
-          name: Install Docker client
-          command: |
-            set -x
-            VER="17.03.0-ce"
-            curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
-            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-            mv /tmp/docker/* /usr/bin
+      # - run:
+      #     name: Install Docker client
+      #     command: |
+      #       set -x
+      #       VER="17.03.0-ce"
+      #       curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
+      #       tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+      #       mv /tmp/docker/* /usr/bin
 
       # build and push Docker image
       - run: |
@@ -46,7 +46,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "5c:23:fb:6f:bd:73:11:fd:45:b0:97:91:ff:59:f1:49"
-            
+
       - deploy:
           name: Deploy
           command: ssh ubuntu@gimc.me "./scripts/deploy-main-prod.sh"
